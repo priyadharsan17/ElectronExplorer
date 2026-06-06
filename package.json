@@ -1,0 +1,55 @@
+{
+  "name": "electron-explorer",
+  "version": "1.0.0",
+  "description": "A simple Electron JS application",
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "electron-start": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000 && electron . --inspect=5858\"",
+    "electron-build": "npm run react-build && electron-builder",
+    "build": "npm run react-build",
+    "start": "npm run electron-start"
+  },
+  "author": "priyadharsan17",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "electron": "^latest",
+    "electron-builder": "^latest",
+    "concurrently": "^latest",
+    "wait-on": "^latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.electron-explorer.app",
+    "productName": "Electron Explorer",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "main.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
